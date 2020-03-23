@@ -1,0 +1,6 @@
+C:\Users\awful\Desktop\Outward GitHub Repo\ManaOverhaul\ManaOverhaul\bin\Debug\ManaOverhaul.dll
+C:\Users\awful\Desktop\Outward GitHub Repo\ManaOverhaul\ManaOverhaul\bin\Debug\ManaOverhaul.pdb
+C:\Users\awful\Desktop\Outward GitHub Repo\ManaOverhaul\ManaOverhaul\obj\Debug\ManaOverhaul.csprojAssemblyReference.cache
+C:\Users\awful\Desktop\Outward GitHub Repo\ManaOverhaul\ManaOverhaul\obj\Debug\ManaOverhaul.csproj.CoreCompileInputs.cache
+C:\Users\awful\Desktop\Outward GitHub Repo\ManaOverhaul\ManaOverhaul\obj\Debug\ManaOverhaul.dll
+C:\Users\awful\Desktop\Outward GitHub Repo\ManaOverhaul\ManaOverhaul\obj\Debug\ManaOverhaul.pdb
