@@ -62,33 +62,50 @@ namespace ManaOverhaul
             Instance = this;
 
             //identify class to override with hook (controls for max mana)
-            On.CharacterStats.RefreshVitalMaxStat += new On.CharacterStats.hook_RefreshVitalMaxStat(RefreshVitalMaxHook);
+            On.CharacterStats.RefreshVitalMaxStat += RefreshVitalMaxHook;
         }
 
+        // define flags for reflection
+        public BindingFlags flags = BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Public | BindingFlags.Static;
+
         // Define hook function that redoes mana
-        private void RefreshVitalMaxHook(On.CharacterStats.orig_RefreshVitalMaxStat orig, CharacterStats self, bool _updateNeeds)
+        private void RefreshVitalMaxHook(On.CharacterStats.orig_RefreshVitalMaxStat orig, CharacterStats self, bool _updateNeeds = false)
         {
+            // run original code
+            orig(self,_updateNeeds);
+
+            // code copied from Sinai
+            // get the character value needed for health bonuses (.Inventory.Equipment.GetMaxHealthBonus)
+            var m_character = self.GetComponent<Character>();
+            // get the mana points needed for mana bonuses
+            var m_manaPoint = self.ManaPoint;
+
+            // make sure to check for null
+            if ((typeof(CharacterStats).GetField("m_manaHealthReduction", flags).GetValue(self) as StatStack) != null)
+            {
+                // get the new character value for health at ley line
+                (typeof(CharacterStats).GetField("m_manaHealthReduction", flags).GetValue(self) as StatStack)
+                    .Refresh((float)m_manaPoint * -5f + m_character.Inventory.Equipment.GetMaxHealthBonus());
+            }
+            if ((typeof(CharacterStats).GetField("m_manaStaminaReduction", flags).GetValue(self) as StatStack) != null)
+            {
+                // get the new character value for stamina at ley line
+                (typeof(CharacterStats).GetField("m_manaStaminaReduction", flags).GetValue(self) as StatStack)
+                    .Refresh((float)m_manaPoint * -5f);
+            }
+            if ((typeof(CharacterStats).GetField("m_manaAugmentation", flags).GetValue(self) as StatStack) != null)
+            {
+                // get the new character value for mana at ley line
+                (typeof(CharacterStats).GetField("m_manaAugmentation", flags).GetValue(self) as StatStack)
+                    .Refresh((float)m_manaPoint * 5f);
+            }
             
 
-            // reflect the m_manaAugmentation private variable
-            StatStack m_manaAugmentation = typeof(CharacterStats).GetField("m_manaAugmentation", BindingFlags.Instance | BindingFlags.NonPublic).GetValue(this) as StatStack;
-            // reflect the m_manaPoint private variable
-            FieldInfo manaPointField = typeof(CharacterStats).GetField("m_manaPoint", BindingFlags.Instance | BindingFlags.NonPublic);
-            var m_manaPoint = manaPointField.GetValue(this);
+            // update these values
+            (typeof(CharacterStats).GetField("m_maxHealthStat", flags).GetValue(self) as Stat).Update();
+            (typeof(CharacterStats).GetField("m_maxStamina", flags).GetValue(self) as Stat).Update();
+            (typeof(CharacterStats).GetField("m_maxManaStat", flags).GetValue(self) as Stat).Update();
 
-            // change mana points gained to 5 instead of 20
-            if (m_manaAugmentation != null)
-            {
-                m_manaAugmentation.Refresh((float)m_manaPoint * 5f);
-            }
-
-            // get maximum mana stat with reflection
-            Stat m_maxManaStat = typeof(CharacterStats).GetField("m_maxManaStat", BindingFlags.Instance | BindingFlags.NonPublic).GetValue(this) as Stat;
-            // update the maximum mana stat
-            m_maxManaStat.Update();
-
-            // have the code run after the original function so it overwrites properly
-            orig(self, _updateNeeds);
         }
     }
 }
