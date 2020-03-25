@@ -1,0 +1,2 @@
+C:\Users\awful\Desktop\Outward GitHub Repo\Outward_Mods\Outward_Mods\ElementalDischargeRemoval\obj\Debug\ElementalDischargeRemoval.csprojAssemblyReference.cache
+C:\Users\awful\Desktop\Outward GitHub Repo\Outward_Mods\Outward_Mods\ElementalDischargeRemoval\obj\Debug\ElementalDischargeRemoval.csproj.CoreCompileInputs.cache
