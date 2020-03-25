@@ -4,3 +4,9 @@ C:\Users\awful\Desktop\Outward GitHub Repo\ManaOverhaul\ManaOverhaul\obj\Debug\M
 C:\Users\awful\Desktop\Outward GitHub Repo\ManaOverhaul\ManaOverhaul\obj\Debug\ManaOverhaul.csproj.CoreCompileInputs.cache
 C:\Users\awful\Desktop\Outward GitHub Repo\ManaOverhaul\ManaOverhaul\obj\Debug\ManaOverhaul.dll
 C:\Users\awful\Desktop\Outward GitHub Repo\ManaOverhaul\ManaOverhaul\obj\Debug\ManaOverhaul.pdb
+C:\Users\awful\Desktop\Outward GitHub Repo\Outward_Mods\Outward_Mods\ManaOverhaul\bin\Debug\ManaOverhaul.dll
+C:\Users\awful\Desktop\Outward GitHub Repo\Outward_Mods\Outward_Mods\ManaOverhaul\bin\Debug\ManaOverhaul.pdb
+C:\Users\awful\Desktop\Outward GitHub Repo\Outward_Mods\Outward_Mods\ManaOverhaul\obj\Debug\ManaOverhaul.csproj.CoreCompileInputs.cache
+C:\Users\awful\Desktop\Outward GitHub Repo\Outward_Mods\Outward_Mods\ManaOverhaul\obj\Debug\ManaOverhaul.dll
+C:\Users\awful\Desktop\Outward GitHub Repo\Outward_Mods\Outward_Mods\ManaOverhaul\obj\Debug\ManaOverhaul.pdb
+C:\Users\awful\Desktop\Outward GitHub Repo\Outward_Mods\Outward_Mods\ManaOverhaul\obj\Debug\ManaOverhaul.csprojAssemblyReference.cache
