@@ -14,7 +14,7 @@ For **Partiality:**
 - Refer to [this guide](https://outward.gamepedia.com/Installing_Mods#Partiality) if you haven't used Partiality before
 - Download the **ElementalDischargeRemoval.zip** file
 - Extract the **ElementalDischargeRemoval.dll** file in the "Mods" folder (located in Outward/Mods)
-- click "Refresh Mods" in Partiality, enable **ManaOverhaul.dll**, then press Apply Mods
+- click "Refresh Mods" in Partiality, enable **ElementalDischargeRemoval.dll**, then press Apply Mods
 
 For **BepInEx:**
 
