@@ -96,12 +96,12 @@ namespace ElementalDischargeRemoval
                     }
 
                     // change item description (copied from sinai's side loader)
-                   // string name = "Elemental Discharge";
+                    string name = "Elemental Discharge";
                     string desc = String.Format("Required: Infused Weapon\n\nThrust your weapon forward, removing the elemental infusion to shoot a projectile of that element.");
 
                     ItemLocalization loc = new ItemLocalization(name, desc);
 
-                    //typeof(Item).GetField("m_name",flags).SetValue(_skill, name);
+                    typeof(Item).GetField("m_name",flags).SetValue(_skill, name);
 
                     if (typeof(LocalizationManager).GetField("m_itemLocalization", flags).GetValue(LocalizationManager.Instance) is Dictionary<int, ItemLocalization> dict)
                     {
