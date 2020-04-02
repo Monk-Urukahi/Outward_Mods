@@ -25,3 +25,7 @@ For **BepInEx:**
 **1.0:**
 
 -Initial mod, no bugs detected (that I know of).
+
+**1.1:**
+
+-Fixed issue with mod not working after loading screens.
