@@ -80,7 +80,7 @@ namespace ElementalDischargeRemoval
                 // check to make sure it is a skill
                 if (ResourcesPrefabManager.Instance.GetItemPrefab(_elementalDischargeID) is Skill _skill)
                 {
-                    // maintain compatibility with other mods by checking if unqique effects added
+                    // maintain compatibility with other mods by checking if unique effects added
                     if (_skill.transform.Find("Effects") is Transform effects)
                     {
                         // add component to child
@@ -101,7 +101,7 @@ namespace ElementalDischargeRemoval
 
                     ItemLocalization loc = new ItemLocalization(name, desc);
 
-                    typeof(Item).GetField("m_name",flags).SetValue(_skill, name);
+                    typeof(Item).GetField("m_name", flags).SetValue(_skill, name);
 
                     if (typeof(LocalizationManager).GetField("m_itemLocalization", flags).GetValue(LocalizationManager.Instance) is Dictionary<int, ItemLocalization> dict)
                     {
@@ -115,6 +115,9 @@ namespace ElementalDischargeRemoval
                         }
                         typeof(LocalizationManager).GetField("m_itemLocalization", flags).SetValue(LocalizationManager.Instance, dict);
                     }
+
+                    // make sure safe through loading screens
+                    DontDestroyOnLoad(_skill.gameObject);
                 }
             }
         }
